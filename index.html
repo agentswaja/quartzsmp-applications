@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    background: #0b0b0f;
+    background: #09090d;
     color: white;
     font-family: Arial, sans-serif;
 }
@@ -21,12 +21,13 @@ body {
     background: #15151d;
     padding: 35px;
     border-radius: 16px;
-    border: 1px solid #6d28d9;
+    border: 1px solid #7c3aed;
+    box-shadow: 0 0 25px rgba(124,58,237,0.2);
 }
 
 .logo {
     text-align: center;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     color: #a855f7;
 }
@@ -35,6 +36,17 @@ body {
     text-align: center;
     color: #bdbdbd;
     margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.notice {
+    background: #1d1d27;
+    border-left: 4px solid #a855f7;
+    padding: 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
 h2 {
@@ -44,8 +56,9 @@ h2 {
 label {
     display: block;
     margin-top: 18px;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
     font-weight: bold;
+    color: #e9d5ff;
 }
 
 input, textarea {
@@ -56,10 +69,15 @@ input, textarea {
     padding: 12px;
     border-radius: 8px;
     font-size: 14px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #a855f7;
 }
 
 textarea {
-    height: 100px;
+    height: 110px;
     resize: vertical;
 }
 
@@ -103,6 +121,10 @@ Staff Application
 <br>
 Apply to become a part of the QuartzSMP staff team.
 </p>
+
+<div class="notice">
+Please answer every question honestly. Low effort applications may be denied.
+</div>
 
 
 <h2>Application Form</h2>
@@ -148,6 +170,7 @@ Submit Application
 <div class="footer">
 QuartzSMP © 2026 • Staff Applications
 </div>
+
 
 </div>
 
