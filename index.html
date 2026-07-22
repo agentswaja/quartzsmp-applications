@@ -63,6 +63,7 @@ label {
 }
 
 input, textarea {
+
     width: 100%;
     background: #0f0f14;
     border: 1px solid #333;
@@ -71,6 +72,7 @@ input, textarea {
     border-radius: 8px;
     font-size: 14px;
     outline: none;
+
 }
 
 input:focus, textarea:focus {
@@ -83,6 +85,7 @@ textarea {
 }
 
 button {
+
     margin-top: 25px;
     width: 100%;
     padding: 14px;
@@ -93,17 +96,21 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+
 }
 
 button:hover {
-    background: #7e22ce;
+    background:#7e22ce;
 }
 
+
 .footer {
-    text-align: center;
-    margin-top: 25px;
-    color: #777;
-    font-size: 13px;
+
+    text-align:center;
+    margin-top:25px;
+    color:#777;
+    font-size:13px;
+
 }
 
 </style>
@@ -112,6 +119,7 @@ button:hover {
 
 
 <body>
+
 
 <div class="container">
 
@@ -129,60 +137,221 @@ Apply to become a part of the QuartzSMP staff team.
 
 
 <div class="notice">
+
 Please answer every question honestly. Low effort applications may be denied.
+
 </div>
+
+
+
+<form id="applicationForm">
 
 
 <h2>Application Form</h2>
 
 
-<label>Discord Username</label>
-<input placeholder="Enter your Discord username">
+
+<label>What is your Discord Username?</label>
+<input id="discord" placeholder="Enter your Discord username" required>
+
 
 
 <label>What is your IGN?</label>
-<input placeholder="Enter your Minecraft username">
+<input id="ign" placeholder="Enter your Minecraft username" required>
 
 
-<label>Age</label>
-<input placeholder="Enter your age">
+
+<label>How old are you?</label>
+<input id="age" placeholder="Enter your age" required>
 
 
-<label>Why do you want to become staff?</label>
-<textarea placeholder="Explain your motivation"></textarea>
+
+<label>What timezone are you in?</label>
+<input id="timezone" placeholder="Example: GMT+1">
 
 
-<label>Why should we accept you over others?</label>
-<textarea placeholder="Explain why you stand out"></textarea>
+
+<label>Why do you want to become staff on QuartzSMP?</label>
+<textarea id="reason" placeholder="Explain your motivation"></textarea>
 
 
-<label>What benefits can you bring to the team?</label>
-<textarea placeholder="Your skills and qualities"></textarea>
+
+<label>Do you have any previous staff experience?</label>
+<textarea id="experience" placeholder="Tell us about your experience"></textarea>
 
 
-<label>What are your strengths and weak spots?</label>
-<textarea placeholder="Tell us about yourself"></textarea>
+
+<label>Why should we choose you over other applicants?</label>
+<textarea id="choose" placeholder="Explain why you stand out"></textarea>
 
 
-<label>How long can you moderate on this server?</label>
-<textarea placeholder="How much time can you spend moderating?"></textarea>
+
+<label>What benefits can you bring to the staff team?</label>
+<textarea id="benefits" placeholder="Your skills and qualities"></textarea>
 
 
-<label>What would you do if two players are arguing?</label>
-<textarea placeholder="Explain how you would handle the situation"></textarea>
+
+<label>What are your strengths and weaknesses?</label>
+<textarea id="strengths" placeholder="Tell us about yourself"></textarea>
 
 
-<button>
+
+<label>How active can you be on QuartzSMP?</label>
+<textarea id="activity" placeholder="Hours per day/week"></textarea>
+
+
+
+<label>Have you ever been punished on a Minecraft server?</label>
+<textarea id="punishments" placeholder="Explain if yes"></textarea>
+
+
+
+<label>What would you do if two players were arguing?</label>
+<textarea id="argument" placeholder="Explain how you would handle it"></textarea>
+
+
+
+<label>What would you do if a staff member abused their permissions?</label>
+<textarea id="abuse" placeholder="Explain your actions"></textarea>
+
+
+
+<label>Do you understand that staff permissions should never be abused?</label>
+<textarea id="rules" placeholder="Your answer"></textarea>
+
+
+
+<label>Do you have any ideas to improve QuartzSMP?</label>
+<textarea id="ideas" placeholder="Share your ideas"></textarea>
+
+
+
+<button type="submit">
+
 Submit Application
+
 </button>
 
 
+
+</form>
+
+
+
 <div class="footer">
+
 QuartzSMP © 2026 • Staff Applications
+
 </div>
 
 
 </div>
+
+
+
+<script>
+
+
+const webhookURL = "YOUR_WEBHOOK_URL_HERE";
+
+
+
+document.getElementById("applicationForm").addEventListener("submit", function(e){
+
+
+e.preventDefault();
+
+
+
+const embed = {
+
+
+embeds:[
+
+{
+
+title:"✦ New QuartzSMP Staff Application",
+
+color:10181046,
+
+
+fields:[
+
+
+{name:"Discord Username", value:discord.value},
+
+{name:"Minecraft IGN", value:ign.value},
+
+{name:"Age", value:age.value},
+
+{name:"Timezone", value:timezone.value},
+
+{name:"Why Staff?", value:reason.value},
+
+{name:"Experience", value:experience.value},
+
+{name:"Why Choose You?", value:choose.value},
+
+{name:"Benefits", value:benefits.value},
+
+{name:"Strengths & Weaknesses", value:strengths.value},
+
+{name:"Activity", value:activity.value},
+
+{name:"Punishments", value:punishments.value},
+
+{name:"Player Argument", value:argument.value},
+
+{name:"Staff Abuse", value:abuse.value},
+
+{name:"Staff Permission Understanding", value:rules.value},
+
+{name:"Ideas", value:ideas.value}
+
+
+],
+
+
+footer:{
+
+text:"QuartzSMP Staff Applications"
+
+}
+
+
+}
+
+]
+
+
+};
+
+
+
+fetch(webhookURL,{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(embed)
+
+
+});
+
+
+alert("Your application has been submitted!");
+
+
+
+});
+
+
+</script>
 
 
 </body>
